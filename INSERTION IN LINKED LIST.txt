@@ -1,0 +1,76 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node 
+{ 
+int data; 
+struct node *next; 
+};
+
+struct node *head=NULL;
+ int a;
+
+void ist()
+{
+    struct node *n;
+    n=(struct node*)malloc(sizeof(struct node));
+    printf("Enter the value u want to input:");
+    scanf("%d",&n->data);
+    if(head==NULL)
+    {
+        head= n;
+        n->next = NULL;
+    }
+    
+    else{
+        n->next=head;
+        head=n;
+    }
+    printf("sucess");
+    
+}
+void iend(struct node *ps)
+{
+  if (ps==NULL)
+  {
+      ist(ps);
+  }
+  else
+  {
+    while(ps!=NULL)
+    {
+        ps=ps->next;
+        if (ps==NULL)
+        {
+            struct node *p;
+            p=(struct node*)malloc(sizeof(struct node));
+            printf("enter your no:");
+            scanf("%d",&p->data);
+            p->next=NULL;
+            ps->next=p;
+            printf("sucess");
+        }
+    }
+  }
+}
+
+    
+
+
+int main()
+{
+    printf("1.Insert at Beg\n");
+    printf("2.Insert at end");
+    scanf("%d",&a);
+    if(a==1)
+    {
+        ist(head);
+    }
+    else
+    {
+        iend(head);
+    }
+    return 0;
+    
+    
+}
